@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff8f1" />
+  <meta name="description" content="CraveBite — delicious food, delivered fresh to your door." />
+  <title>CraveBite | Food, delivered with love</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="CraveBite home"><span class="brand-mark">C</span> crave<span>bite</span><i>.</i></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a class="active" href="#home">Home</a><a href="#menu">Explore menu</a><a href="#about">About</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn search-toggle" id="searchToggle" aria-label="Focus search">⌕</button>
+      <button class="cart-button" id="cartOpen"><span>🛍</span> Cart <b id="cartCount">0</b></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> FRESHLY MADE, JUST FOR YOU</div>
+        <h1>Good food.<br><em>Good mood.</em><br>Delivered.</h1>
+        <p>Cravings don't wait. Explore your favourites and get delicious food delivered right to your doorstep.</p>
+        <div class="hero-actions"><a class="primary-btn" href="#menu">Explore food <span>→</span></a><div class="delivery-note"><span>⚡</span><div><strong>Fast delivery</strong><small>At your doorstep</small></div></div></div>
+        <div class="hero-stats"><div><strong>4.8<span>★</span></strong><small>Customer rating</small></div><div><strong>25<span>min</span></strong><small>Average delivery</small></div><div><strong>50<span>+</span></strong><small>Delicious choices</small></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-image-wrap"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1000&q=85" alt="Freshly baked pizza" /></div>
+        <div class="floating-tag tag-top"><span>🔥</span><div><strong>Hot & fresh</strong><small>Made with love</small></div></div>
+        <div class="floating-tag tag-bottom"><span class="mini-avatars">☺</span><div><strong>2k+ happy foodies</strong><small>And counting!</small></div></div>
+        <div class="hero-scribble">Yum!</div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span></span> WHAT ARE YOU CRAVING?</div><h2>Explore our <em>menu</em></h2></div>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search your favourite food..." /><kbd>⌘ K</kbd></label>
+      </div>
+      <div class="category-row" id="categories">
+        <button class="category active" data-category="All"><span>🍽️</span> All food</button>
+        <button class="category" data-category="Pizza"><span>🍕</span> Pizza</button>
+        <button class="category" data-category="Burgers"><span>🍔</span> Burgers</button>
+        <button class="category" data-category="Indian"><span>🍛</span> Indian</button>
+        <button class="category" data-category="Sides"><span>🍟</span> Sides</button>
+        <button class="category" data-category="Desserts"><span>🍰</span> Desserts</button>
+        <button class="category" data-category="Drinks"><span>🥤</span> Drinks</button>
+      </div>
+      <div class="menu-meta"><span id="resultsLabel">Popular right now</span><span>Fresh picks, happy bites ✨</span></div>
+      <div class="food-grid" id="foodGrid"></div>
+      <div class="empty-state" id="emptyState" hidden><span>🍽️</span><h3>No bites found!</h3><p>Try another search or category.</p></div>
+    </section>
+
+    <section class="promo" id="about">
+      <div class="promo-text"><span class="promo-label">A LITTLE SOMETHING EXTRA</span><h2>Your first bite<br>is on <em>us!</em></h2><p>New to CraveBite? Enjoy a little treat on your first order. Use the code below at checkout.</p><div class="coupon"><strong>FIRSTBITE</strong><button id="copyCode">Copy code</button></div></div>
+      <div class="promo-art"><div class="promo-circle">20<small>% OFF</small></div><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700&q=85" alt="Delicious burger and fries"></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">C</span> crave<span>bite</span><i>.</i></a><p>Made for food lovers. © <span id="year"></span> CraveBite.</p><a href="#home">Back to top ↑</a></footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head"><div><span class="eyebrow">YOUR ORDER</span><h2>Your cart <span id="drawerCount">(0)</span></h2></div><button class="close-btn" id="cartClose" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty"><span>🛍️</span><h3>Your cart is empty</h3><p>Add something delicious to get started.</p></div></div>
+    <div class="cart-bottom" id="cartBottom" hidden><div class="bill-row"><span>Subtotal</span><strong id="subtotal">₹0</strong></div><div class="bill-row"><span>Delivery fee</span><strong>₹30</strong></div><div class="bill-row total"><span>Total</span><strong id="total">₹0</strong></div><button class="checkout-btn" id="checkoutBtn">Proceed to checkout <span>→</span></button><small class="secure-note">🔒 Demo checkout — no payment will be taken.</small></div>
+  </aside>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
